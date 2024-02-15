@@ -1,220 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for defining character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the document -->
     <title>Will You Be My Valentine?</title>
+    <!-- External JavaScript library for sending emails -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Inline script to initialize emailjs -->
     <script type="text/javascript">
-   (function(){
-      emailjs.init("PSvsCqswEoTL6yKeI");
-   })();
+        (function(){
+            emailjs.init("PSvsCqswEoTL6yKeI");
+        })();
     </script>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fce4ec;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            animation: fadeIn 1s ease-out;
-        }
-        h1 {
-            color: #e91e63;
-            font-size: 36px;
-            animation: heartBeat 1s infinite alternate;
-        }
-        .btn {
-            background-color: #e91e63;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: all 0.3s;
-        }
-        .yes {
-            background-color: #4caf50;
-            font-size: 16px;
-            padding: 15px 30px;
-        }
-        .no {
-            background-color: #c2185b;
-            font-size: 16px;
-            padding: 12px 22px;
-        }
-        .btn:hover {
-            background-color: #c2185b;
-        }
-        .score {
-            font-size: 18px;
-            margin-top: 10px;
-            display: none;
-        }
-        /* Add animation for input */
-        #nameInput {
-            width: 300px;
-            padding: 10px;
-            margin-top: 20px;
-            border: 2px solid #e91e63;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: all 0.3s;
-            outline: none;
-            animation: inputAnimation 0.5s ease-out;
-        }
-
-        /* Add animation for input focus */
-        #nameInput:focus {
-            border-color: #4caf50;
-            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-        }
-
-        /* Define the input animation */
-        @keyframes inputAnimation {
-            0% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Add animation for textarea */
-        #messageInput {
-            width: 300px;
-            height: 100px; /* Adjust the height as needed */
-            padding: 10px;
-            margin-top: 20px;
-            border: 2px solid #e91e63;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: all 0.3s;
-            outline: none;
-            animation: inputAnimation 0.5s ease-out;
-        }
-
-        /* Add animation for textarea focus */
-        #messageInput:focus {
-            border-color: #4caf50;
-            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-        }
-
-        /* Define the input animation */
-        @keyframes inputAnimation {
-            0% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        #nameInput:focus,
-        #messageInput:focus {
-            border-color: #4caf50;
-            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-            animation: shake 0.5s ease-in-out;
-        }
-
-        /* Define the shake animation */
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-3px); }
-            100% { transform: translateX(0); }
-        }
-        #sendMessageBtn {
-            background-color: #e91e63;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: all 0.3s;
-        }
-        #sendMessageBtn:hover {
-            background-color: #c2185b;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes heartBeat {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-        @keyframes firework {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-1000px) scale(0);
-                opacity: 0;
-            }
-        }
-        .firework {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            animation: firework 2s ease-out;
-        }
-        /* Responsive Design */
-        @media only screen and (max-width: 600px) {
-            .container {
-                width: 90%;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                overflow: hidden; /* Prevent overflow */
-            }
-            h1 {
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
-            .btn {
-                font-size: 14px;
-                margin-top: 20px;
-            }
-            #nameInput,
-            #messageInput {
-                width: calc(100% - 20px); /* Subtract padding from total width */
-                box-sizing: border-box; /* Include padding in width calculation */
-                margin-bottom: 10px;
-            }
-            #messageInput {
-                height: 150px;
-            }
-            #sendMessageBtn {
-                width: 100%;
-            }
-        }
-
-    </style>
+    <!-- External CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Preconnect hints for faster loading of Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Container for the content -->
     <div class="container">
+        <!-- Main heading -->
         <h1>Will You Be My Valentine?</h1>
+        <!-- Paragraphs for message -->
+        <p>Dear Valentine,</p>
+        <p>It's the day of love, and I can't help but feel drawn to you. Your smile, your laughter, your presence... They light up my world in a way I never imagined possible.</p>
+        <p>So, what do you say?</p>
+        <!-- Buttons for response -->
         <button class="btn yes" onclick="confirmValentine()">Yes</button>
         <button class="btn no" onclick="rejectValentine()">No</button>  
 
+        <!-- Element for displaying count of "No" responses -->
         <div class="score" id="score"><span id="noCount"></span>X</div>
         
+        <!-- Form for sending a message -->
         <br><br><br><br><br>
-
         <form id="contact-form" onsubmit="sendMessage(); return false;">
             <input type="text" id="nameInput" placeholder="May I know your name..."><br>
             <textarea id="messageInput" placeholder="Want to say something..."></textarea><br>
@@ -223,76 +49,8 @@
         
     </div>  
 
-    <script> 
-        function createFirework() {
-            const container = document.querySelector('.container');
-            const colors = ['#ff5733', '#33ff57', '#3333ff', '#ff33c2', '#f5ff33', '#33fff5']; // Add more colors if needed
-            const numFireworks = 1000; // Increase the number of fireworks
-
-            for (let i = 0; i < numFireworks; i++) {
-                const firework = document.createElement('div');
-                firework.classList.add('firework');
-                firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                firework.style.left = Math.random() * window.innerWidth + 'px';
-                firework.style.top = Math.random() * window.innerHeight + 'px';
-                container.appendChild(firework);
-                setTimeout(() => {
-                    container.removeChild(firework);
-                }, 2000); // Adjust the duration of each firework burst
-            }
-        }
-
-        var noCounter = 0;
-        var noMessage = "Don't Say N";
-
-        var yesClicked = false;
-
-        function confirmValentine() {
-            createFirework();
-            yesClicked = true;
-            clearInterval(increaseSizeInterval);
-            var scoreDiv = document.getElementById("score");
-            scoreDiv.parentNode.removeChild(scoreDiv); // Remove the score div
-            document.getElementById("messageInput").style.display = "block";
-            document.getElementById("sendMessageBtn").style.display = "block";
-        }
-
-        function rejectValentine() {
-            if (!yesClicked) { // Fix for "Don't say no" feature
-                var noString = "o".repeat(noCounter + 1);
-                var message = `${noMessage}${noString}  ${noCounter + 1}`;
-                var yesButton = document.querySelector('.yes');
-                var fontSize = parseInt(window.getComputedStyle(yesButton).fontSize);
-                yesButton.style.fontSize = (fontSize + 3) + 'px';
-                noCounter++;
-                updateScores(message);
-            }
-        }
-
-        function updateScores(message) {
-            document.getElementById('noCount').textContent = message;
-            document.getElementById("score").style.display = "block";
-        }
-        
-        function sendMessage(){
-        var params = { 
-            name: document.getElementById("nameInput").value,
-            message: document.getElementById("messageInput").value
-        }
-        const serviceID = "service_sfct2u6"
-        const templeteID = "template_vrn0mhl"
-
-        emailjs
-            .send(serviceID, templeteID, params)
-            .then((res) => {
-                document.getElementById("nameInput").value = ""
-                document.getElementById("messageInput").value = ""
-                alert("Your Message Have Been Sent Successfully")
-            })
-        }
-
-    </script>
-
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
 </body>
 
 </html>

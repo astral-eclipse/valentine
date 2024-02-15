@@ -1,0 +1,248 @@
+/* CSS Styles for the Body */
+
+body {
+    /* Font family for the entire body */
+    font-family: "Merriweather", serif;
+    /* Background color */
+    background-color: #fce4ec;
+    /* Margin and padding reset */
+    margin: 0;
+    padding: 0;
+    /* Flexbox for centering content vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Full viewport height */
+    height: 100vh;
+}
+
+/* Container Styles */
+
+.container {
+    /* Center align text */
+    text-align: center;
+    /* Fade-in animation */
+    animation: fadeIn 1s ease-out;
+    /* Maximum width for container */
+    max-width: 800px;
+    /* Set width to 90% of available space */
+    width: 90%;
+    /* Center the container horizontally */
+    margin: 0 auto;
+}
+
+/* Paragraph Styles */
+
+p {
+    /* Font size and line height */
+    font-size: 18px;
+    line-height: 1.6;
+    /* Text color */
+    color: #333;
+    /* Margin bottom for spacing */
+    margin-bottom: 20px;
+}
+
+/* Heading Styles */
+
+h1 {
+    /* Heading color */
+    color: #e91e63;
+    /* Font size */
+    font-size: 36px;
+    /* Heartbeat animation */
+    animation: heartBeat 1s infinite alternate;
+}
+
+/* Button Styles */
+
+.btn {
+    /* Button background color */
+    background-color: #e91e63;
+    /* Text color */
+    color: white;
+    /* Remove default button styles */
+    border: none;
+    /* Padding */
+    padding: 10px 20px;
+    /* Font size */
+    font-size: 16px;
+    /* Cursor pointer */
+    cursor: pointer;
+    /* Border radius */
+    border-radius: 5px;
+    /* Top margin for spacing */
+    margin-top: 20px;
+    /* Transition for smooth hover effect */
+    transition: all 0.3s;
+}
+
+/* Specific Button Styles */
+
+.yes {
+    /* Background color for "Yes" button */
+    background-color: #4caf50;
+    /* Additional styling */
+    font-size: 16px;
+    padding: 15px 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.no {
+    /* Background color for "No" button */
+    background-color: #c2185b;
+    /* Additional styling */
+    font-size: 16px;
+    padding: 15px 30px;
+}
+
+/* Button Hover Effect */
+
+.btn:hover {
+    background-color: #c2185b;
+}
+
+/* Score Display Styles */
+
+.score {
+    /* Font size */
+    font-size: 18px;
+    /* Top margin */
+    margin-top: 10px;
+    /* Initially hidden */
+    display: none;
+}
+
+/* Input Animation Styles */
+
+#nameInput,
+#messageInput {
+    /* Width for input fields */
+    width: 500px;
+    /* Padding */
+    padding: 10px;
+    /* Top margin */
+    margin-top: 20px;
+    /* Border */
+    border: 2px solid #e91e63;
+    /* Border radius */
+    border-radius: 5px;
+    /* Font size */
+    font-size: 16px;
+    /* Transition for smooth animation */
+    transition: all 0.3s;
+    /* Remove default focus outline */
+    outline: none;
+    /* Input animation */
+    animation: inputAnimation 0.5s ease-out;
+}
+
+/* Input Focus Styles */
+
+#nameInput:focus,
+#messageInput:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Define the shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
+/* Send Message Button Styles */
+
+#sendMessageBtn {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+/* Send Message Button Hover Effect */
+
+#sendMessageBtn:hover {
+    background-color: #c2185b;
+}
+
+/* Animation Keyframes */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes heartBeat {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+@keyframes firework {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Firework Animation */
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: firework 2s ease-out;
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Prevent overflow */
+    }
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .btn {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    #nameInput,
+    #messageInput {
+        width: calc(100% - 20px); /* Subtract padding from total width */
+        box-sizing: border-box; /* Include padding in width calculation */
+        margin-bottom: 10px;
+    }
+    #messageInput {
+        height: 150px;
+    }
+    #sendMessageBtn {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 95%; /* Adjust width to 95% for smaller screens */
+    }
+}

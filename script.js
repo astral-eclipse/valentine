@@ -29,7 +29,7 @@ function createFirework() {
 
 // Variables for tracking "No" button clicks and message display
 var noCounter = 0;
-var noMessage = "Embrace the Magic";
+var noMessage = "Embrace the Magi";
 var yesClicked = false;
 
 // Function to handle "Yes" button click

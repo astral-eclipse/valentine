@@ -1,60 +1,31 @@
-/**
- * Creates a fireworks animation with customizable parameters.
- * @param {number} numFireworks - The number of fireworks to create.
- * @param {number} duration - The duration (in milliseconds) for each firework burst.
- * @param {string[]} colors - An array of colors for the fireworks.
- */
-function createFirework(numFireworks = 1000, duration = 2000, colors = ['#ff5733', '#33ff57', '#3333ff', '#ff33c2', '#f5ff33', '#33fff5']) {
+// Function to create fireworks animation
+function createFirework() {
     // Select the container element
     const container = document.querySelector('.container');
-    // Get window dimensions
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
-
-    /**
-     * Generates a random position within the window.
-     * @returns {{x: number, y: number}} - Object containing x and y coordinates.
-     */
-    function getRandomPosition() {
-        return {
-            x: Math.random() * windowWidth,
-            y: Math.random() * windowHeight
-        };
-    }
-
-    /**
-     * Creates a single firework particle and appends it to the container.
-     * @param {string} color - Color of the firework particle.
-     */
-    function createParticle(color) {
-        // Create a new div for the firework particle
-        const particle = document.createElement('div');
-        // Add the firework class to the div
-        particle.classList.add('firework');
-        // Set the background color
-        particle.style.backgroundColor = color;
-        // Get a random position
-        const position = getRandomPosition();
-        // Set the position
-        particle.style.left = position.x + 'px';
-        particle.style.top = position.y + 'px';
-        // Append the particle to the container
-        container.appendChild(particle);
-        // Remove the particle after the specified duration
-        setTimeout(() => {
-            container.removeChild(particle);
-        }, duration);
-    }
+    // Array of colors for fireworks
+    const colors = ['#ff5733', '#33ff57', '#3333ff', '#ff33c2', '#f5ff33', '#33fff5']; // Add more colors if needed
+    // Number of fireworks
+    const numFireworks = 1000; // Increase the number of fireworks
 
     // Loop to create fireworks
     for (let i = 0; i < numFireworks; i++) {
-        // Choose a random color from the provided colors array
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        // Create a particle with the chosen color
-        createParticle(color);
+        // Create a new div for each firework
+        const firework = document.createElement('div');
+        // Add the firework class to the div
+        firework.classList.add('firework');
+        // Set random background color from the colors array
+        firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        // Set random position within the window
+        firework.style.left = Math.random() * window.innerWidth + 'px';
+        firework.style.top = Math.random() * window.innerHeight + 'px';
+        // Append the firework to the container
+        container.appendChild(firework);
+        // Remove the firework after a delay
+        setTimeout(() => {
+            container.removeChild(firework);
+        }, 2000); // Adjust the duration of each firework burst
     }
 }
-
 
 // Variables for tracking "No" button clicks and message display
 var noCounter = 0;

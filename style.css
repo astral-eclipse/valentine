@@ -247,13 +247,18 @@ h1 {
     }
 }
 /* Firework Animation */
+/* Firework Animation */
 @keyframes firework {
     0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(100vh) scale(0); /* Start off-screen bottom */
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(calc(-50vh + 50%)) scale(1); /* Move to halfway screen height */
         opacity: 1;
     }
     100% {
-        transform: translateY(-80vh) scale(0); /* Adjusted for smaller screens */
+        transform: translateY(0) scale(0); /* Move to top of screen */
         opacity: 0;
     }
 }
@@ -267,11 +272,5 @@ h1 {
     .firework {
         width: 8px; /* Reduced firework size for smaller screens */
         height: 8px; /* Reduced firework size for smaller screens */
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .container {
-        width: 95%; /* Adjusted width for smaller screens */
     }
 }

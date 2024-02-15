@@ -73,25 +73,39 @@ function updateScores(message) {
     document.getElementById("score").style.display = "block";
 }
 
-// Function to send message
-function sendMessage(){
-    // Get input values
-    var params = { 
-        name: document.getElementById("nameInput").value,
-        message: document.getElementById("messageInput").value
-    }
-    // EmailJS service and template IDs
-    const serviceID = "service_sfct2u6"
-    const templeteID = "template_vrn0mhl"
+function sendMessage() {
+    // Get input value
+    var message = document.getElementById("messageInput").value.trim();
 
-    // Send email using EmailJS
-    emailjs
-        .send(serviceID, templeteID, params)
-        .then((res) => {
-            // Clear input fields
-            document.getElementById("nameInput").value = ""
-            document.getElementById("messageInput").value = ""
-            // Show success alert
-            alert("Your Message Have Been Sent Successfully")
-        })
+    // Check if message is not empty
+    if (message !== "") {
+        // Get input values
+        var params = {
+            name: document.getElementById("nameInput").value,
+            message: message
+        };
+        // EmailJS service and template IDs
+        const serviceID = "service_sfct2u6";
+        const templeteID = "template_vrn0mhl";
+
+        // Send email using EmailJS
+        emailjs
+            .send(serviceID, templeteID, params)
+            .then(
+                function (response) {
+                    // Clear input fields
+                    document.getElementById("nameInput").value = "";
+                    document.getElementById("messageInput").value = "";
+                    // Show success alert
+                    alert("Your Message Has Been Sent Successfully");
+                },
+                function (error) {
+                    // Show error alert
+                    alert("Error sending message. Please try again later.");
+                }
+            );
+    } else {
+        // Show error alert
+        alert("Please type a message before sending.");
+    }
 }

@@ -29,7 +29,7 @@ function createFirework() {
 
 // Variables for tracking "No" button clicks and message display
 var noCounter = 0;
-var noMessage = "Don't Say N";
+var noMessage = "Embrace the Magic";
 var yesClicked = false;
 
 // Function to handle "Yes" button click
@@ -53,9 +53,9 @@ function rejectValentine() {
     // Check if "Yes" button was not clicked
     if (!yesClicked) {
         // Generate "No" string based on the counter
-        var noString = "o".repeat(noCounter + 1);
+        var noString = "c".repeat(noCounter + 1);
         // Construct message with increasing "No" count
-        var message = `${noMessage}${noString}  ${noCounter + 1}`;
+        var message = `${noMessage}${noString}      ${noCounter + 1}`;
         // Increase font size of "Yes" button
         var yesButton = document.querySelector('.yes');
         var fontSize = parseInt(window.getComputedStyle(yesButton).fontSize);

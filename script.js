@@ -74,23 +74,22 @@ function updateScores(message) {
 }
 
 function sendMessage() {
-    // Get input value
+    // Get input values
+    var name = document.getElementById("nameInput").value.trim();
     var message = document.getElementById("messageInput").value.trim();
 
     // Check if message is not empty
     if (message !== "") {
-        // Get input values
-        var params = {
-            name: document.getElementById("nameInput").value,
-            message: message
-        };
         // EmailJS service and template IDs
         const serviceID = "service_sfct2u6";
         const templeteID = "template_vrn0mhl";
 
         // Send email using EmailJS
         emailjs
-            .send(serviceID, templeteID, params)
+            .send(serviceID, templeteID, {
+                name: name,
+                message: message
+            })
             .then(
                 function (response) {
                     // Clear input fields
@@ -105,7 +104,7 @@ function sendMessage() {
                 }
             );
     } else {
-        // Show error alert
+        // Show error alert if message is empty
         alert("Please type a message before sending.");
     }
 }
